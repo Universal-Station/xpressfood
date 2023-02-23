@@ -67,7 +67,7 @@ const SignInScreen = ({navigation}) => {
             </View>
             
             <TouchableOpacity
-            onPress={()=>(navigation.navigate('HomeScreen'))} 
+            onPress={()=>(navigation.navigate('DrawerNavigator'))} 
             style={styles.button}>
             <Text style={styles.buttonText}>Iniciar sesiòn</Text>
             </TouchableOpacity>

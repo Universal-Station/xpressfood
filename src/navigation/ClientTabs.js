@@ -5,7 +5,11 @@ import { Icon } from '@rneui/themed';
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Colors } from '../global/styles';
-import HomeScreen from './HomeScreen';
+import HomeScreen from '../screens/HomeScreen';
+import MyAccountScreen from '../screens/MyAccountScreen';
+import MyOrdersScreen from '../screens/MyOrdersScreen';
+import RestaurantsMapScreen from '../screens/RestaurantsMapsScreen';
+import SearchScreen from '../screens/SearchScreen';
 
 // create a component
 const HomeStack = createStackNavigator();
@@ -13,67 +17,71 @@ const Tab =  createBottomTabNavigator()
 
 const MainTabScreen = () => {
     return (
-       <Tab.Navigator initialRouteName='Home'  screenOptions={{headerShown:false}}>
+       <Tab.Navigator 
+       initialRouteName='Home'
+       screenOptions={{
+        headerShown:false,
+        tabBarActiveTintColor: Colors.buttons
+       }}>
             <Tab.Screen
             name='Home'
             component={HomeStackScreen}
             options={{
                 tabBarLabel: 'Inicio',
-                tabBarColor: '#d02860',
-                tabBarIcon:({color})=>(
+                tabBarIcon:({color,size})=>(
                     <Icon 
                     name='ios-home'
                     type='ionicon'
                     color={color}
-                    size={26}
+                    size={size}
                     />
                 ),
             }}
             />
+
             <Tab.Screen
             name='Search'
-            component={HomeStackScreen}
+            component={SearchScreen}
             options={{
                 tabBarLabel: 'Search',
-                tabBarColor: '#d02860',
-                tabBarIcon:({color})=>(
+                tabBarIcon:({color,size})=>(
                     <Icon 
                     name='search'
-                    type='ionicon'
+                    type='material'
                     color={color}
-                    size={26}
+                    size={size}
                     />
                 ),
             }}
             />
-             <Tab.Screen
+            
+            <Tab.Screen
             name='Ordenes'
-            component={HomeStackScreen}
+            component={MyOrdersScreen}
             options={{
                 tabBarLabel: 'Ordenes',
-                tabBarColor: '#d02860',
-                tabBarIcon:({color})=>(
+                tabBarIcon:({color,size})=>(
                     <Icon 
-                    name='order-bool-descending-variant'
-                    type='material-community'
+                    name='view-list'
+                    type='material'
                     color={color}
-                    size={26}
+                    size={size}
                     />
                 ),
             }}
             />
-             <Tab.Screen
+
+            <Tab.Screen
             name='Cuenta'
-            component={HomeStackScreen}
+            component={MyAccountScreen}
             options={{
-                tabBarLabel: 'Cuenta',
-                tabBarColor: '#d02860',
-                tabBarIcon:({color})=>(
+                tabBarLabel: 'Mi Cuenta',
+                tabBarIcon:({color,size})=>(
                     <Icon 
-                    name='account'
-                    type='material-community'
+                    name='person'
+                    type='material'
                     color={color}
-                    size={26}
+                    size={size}
                     />
                 ),
             }}

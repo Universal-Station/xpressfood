@@ -8,6 +8,9 @@ import { Colors } from '../global/styles';
 import SignInScreen from '../screens/authScreen/SignInScreen';
 import SignInWelcomeScreen from '../screens/authScreen/SignInWelcomeScree';
 import HomeScreen from '../screens/HomeScreen';
+import MainTabScreen from './ClientTabs';
+import RestaurantsMapScreen from '../screens/RestaurantsMapsScreen';
+import DrawerNavigator from './DrawerNavigator';
 // create a component
 const Stack = createNativeStackNavigator();
 
@@ -37,13 +40,25 @@ const AuthStack = () => {
                 ...TransitionPresets.RevealFromBottomAndroid
             }}
             />
+
             <Stack.Screen 
-            name='HomeScreen'
-            component={HomeScreen}
-            options={{
-                headerShown: false,
-                ...TransitionPresets.RevealFromBottomAndroid
-            }} /> 
+                name='DrawerNavigator'
+                component={DrawerNavigator}
+                options={{
+                    headerShown: false,
+                    ...TransitionPresets.RevealFromBottomAndroid,
+                    
+                }}
+            /> 
+            <Stack.Screen 
+                name='RestaurantsMapScreen'
+                component={RestaurantsMapScreen}
+                options={{
+                    headerShown: false,
+                    ...TransitionPresets.RevealFromBottomAndroid,
+                    
+                }}
+            /> 
         </Stack.Navigator>
     );
 };
