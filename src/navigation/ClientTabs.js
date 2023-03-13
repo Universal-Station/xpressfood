@@ -43,6 +43,7 @@ const MainTabScreen = () => {
             name='Search'
             component={SearchScreen}
             options={{
+                headerShown:false,
                 tabBarLabel: 'Search',
                 tabBarIcon:({color,size})=>(
                     <Icon 

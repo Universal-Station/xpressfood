@@ -1,12 +1,23 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,Platform } from 'react-native';
+import SearchComponentAndroid from '../components/SearchComponentAndroid';
+import SearchComponentIOS from '../components/SearchComponentIOS';
 
 // create a component
 const SearchScreen = () => {
+    if(Platform.OS==='ios'){
+        return(
+            <View style={styles.container}>
+            
+            <SearchComponentIOS />
+        </View>
+        )
+    }else if(Platform.OS==='android')
     return (
         <View style={styles.container}>
-            <Text>SearchScreen</Text>
+            
+            <SearchComponentAndroid />
         </View>
     );
 };
@@ -14,10 +25,8 @@ const SearchScreen = () => {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
+
+       
     },
 });
 
